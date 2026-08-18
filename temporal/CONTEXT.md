@@ -9,7 +9,7 @@
 | タイトル | Temporal 入門 |
 | コアメッセージ | ① Date のつらさは Temporal が設計で根本解決する（API 設計を理解しよう）＋ ② ではいつ使えるのか（Baseline の構造と現実解） |
 | 持ち時間 | 15〜20 分（前回 Generative UI 回を踏襲） |
-| ボリューム | 25 枚前後 |
+| ボリューム | 25 枚前後（実績はセクション扉込みで 30 枚。調査結果でセクション 03/04 が膨らんだ。削るならまず Baseline 説明と ecosystem を 1 枚ずつ） |
 | スライドフレームワーク | Slidev + dracula テーマ（pnpm + GitHub Actions で GitHub Pages にデプロイ） |
 | インタラクション | Slido なし。Q&A は Google Meet のコメント |
 | デモ | スライド内実行（Slidev Monaco Runner + `temporal-polyfill`）。API キー不要なので GitHub Pages にそのまま公開する。締めに Chrome DevTools でネイティブ実演 |
