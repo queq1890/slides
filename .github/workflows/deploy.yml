@@ -1,0 +1,55 @@
+name: Deploy slides to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          package_json_file: generative-ui/package.json
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+          cache-dependency-path: "**/pnpm-lock.yaml"
+      - name: Build all talks
+        run: |
+          set -euo pipefail
+          mkdir -p _site
+          cp index.html _site/
+          for pkg in */package.json; do
+            dir=$(dirname "$pkg")
+            echo "::group::Build $dir"
+            (cd "$dir" && pnpm install --frozen-lockfile && pnpm build)
+            mkdir -p "_site/$dir"
+            cp -R "$dir/dist/." "_site/$dir/"
+            echo "::endgroup::"
+          done
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
