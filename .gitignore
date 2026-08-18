@@ -1,0 +1,11 @@
+node_modules
+dist
+_site
+.slidev
+*.local
+.env
+.env.*
+!.env.example
+.next
+*.tsbuildinfo
+.DS_Store
