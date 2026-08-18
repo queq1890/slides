@@ -9,6 +9,7 @@ LT 用のスライドとデモ置き場。**1 ディレクトリ = 1 LT** で、
 | ディレクトリ | タイトル | スライド |
 | --- | --- | --- |
 | [`generative-ui/`](./generative-ui) | Generative UI（Slidev + Next.js デモ） | [🔗](https://queq1890.github.io/slides/generative-ui/) |
+| [`temporal/`](./temporal) | Temporal 入門（Slidev + スライド内実行デモ） | [🔗](https://queq1890.github.io/slides/temporal/) |
 
 ## 新しい LT を追加する
 
