@@ -53,7 +53,7 @@ const now = Temporal.Now.zonedDateTimeISO()
 <div class="mt-4">
 
 - **TypeScript 6.0+**: `"lib": ["esnext"]` で `Temporal` の型が入る
-- **Safari が出荷したら**: import を 1 行消すだけ。書いたコードはそのまま動く
+- **Safari が ship したら**: import を 1 行消すだけ。書いたコードはそのまま動く
 - ライブラリ作者向けには peer dependency パターンや codemod も整備されている
 
 </div>

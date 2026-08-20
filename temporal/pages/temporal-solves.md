@@ -192,6 +192,3 @@ const age = birthday.until(Temporal.Now.plainDateISO(), {
 })
 ```
 
-<div class="mt-4 text-sm opacity-70">
-Date のつらみ④だった off-by-one もダミー日付ハックも、型の選択だけで消える
-</div>

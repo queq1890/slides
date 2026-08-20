@@ -21,8 +21,7 @@ layout: default
 1. JavaScript の Date の振る舞い
 2. Temporal は何を解決するのか
 3. サポート状況と、Baseline に乗らない理由
-4. npm パッケージでの対応方針
-5. 実装デモ
+4. 実装デモ
 
 </div>
 
@@ -75,18 +74,6 @@ src: ./pages/support-status.md
 ---
 
 ---
-layout: section
----
-
-<div class="section-num">04</div>
-
-# npm パッケージでの対応方針
-
-<style>
-.section-num { font-size: 1rem; font-weight: 700; color: #ffb86c; letter-spacing: 0.2em; opacity: 0.8; }
-</style>
-
----
 src: ./pages/ecosystem.md
 ---
 
@@ -94,7 +81,7 @@ src: ./pages/ecosystem.md
 layout: section
 ---
 
-<div class="section-num">05</div>
+<div class="section-num">04</div>
 
 # 実装デモ
 
@@ -115,7 +102,7 @@ layout: default
 <div class="mt-8">
 
 - Date のつらさ（ミュータブル、タイムゾーン、パース、型の不在）は **Temporal が設計で解決する**
-- 仕様は **Stage 4 到達（ES2027 掲載予定）**。Chrome / Firefox / Node も出荷済みで、**残るは Safari 安定版だけ**
+- 仕様は **Stage 4 到達（ES2027 掲載予定）**。Chrome / Firefox / Node も shipped で、**残るは Safari 安定版だけ**
 - Baseline はまだ Limited。当面は **polyfill**（`temporal-polyfill/global`）で埋める
 
 </div>
