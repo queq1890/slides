@@ -116,7 +116,7 @@ layout: default
 
 - Date のつらさ（ミュータブル、タイムゾーン、パース、型の不在）は **Temporal が設計で解決する**
 - 仕様は **Stage 4 到達（ES2027 掲載予定）**。Chrome / Firefox / Node も出荷済みで、**残るは Safari 安定版だけ**
-- Baseline はまだ Limited。本番は **polyfill** で埋めつつ、**学ぶなら今がちょうどいい**
+- Baseline はまだ Limited。当面は **polyfill**（`temporal-polyfill/global`）で埋める
 
 </div>
 

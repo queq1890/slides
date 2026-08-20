@@ -145,21 +145,3 @@ layout: default
 - グレゴリオ暦以外（和暦・イスラム暦など）を扱えない
 
 </div>
-
-<v-click>
-
-<div class="mt-8 text-center text-lg">
-
-これらは偶然ではなく、<strong>1995 年に Java 1.0 の <code>java.util.Date</code> を移植した</strong>という出自による
-
-<div class="mt-2 text-sm opacity-70">本家 Java は 2014 年に java.time（JSR-310）で刷新済み。JavaScript の番が Temporal</div>
-
-</div>
-
-</v-click>
-
-<!--
-出典:
-- JS の Date が java.util.Date のコピーであることは Temporal proposal の docs (https://tc39.es/proposal-temporal/docs/) や Maggie Johnson-Pint の "Fixing JavaScript Date" 講演で言及される定説
-- Java は JSR-310 (java.time) を Java 8 (2014) で導入
--->

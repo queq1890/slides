@@ -105,6 +105,60 @@ https://api.webstatus.dev/v1/features/temporal
 layout: default
 ---
 
+# 提案から Stage 4 まで 9 年
+
+<div class="mt-4 timeline">
+
+<div class="tl-item">
+<div class="tl-year">2017</div>
+<div class="tl-body">提案スタート（Stage 1）</div>
+</div>
+
+<div class="tl-item">
+<div class="tl-year">2021-03</div>
+<div class="tl-body"><strong>Stage 3 到達</strong>。仕様は完成し、あとは実装するだけのはずだった</div>
+</div>
+
+<div class="tl-item">
+<div class="tl-year">2024-06</div>
+<div class="tl-body">仕様を大幅縮小（<code>Temporal.Calendar</code> / <code>Temporal.TimeZone</code> クラスを削除）</div>
+</div>
+
+<div class="tl-item">
+<div class="tl-year">2026-03</div>
+<div class="tl-body"><strong>Stage 4 到達 🎉</strong>。ECMA-262 にマージされ、ES2027 に掲載予定</div>
+</div>
+
+</div>
+
+<v-click>
+
+<div class="mt-6 text-center text-lg">
+Stage 3（実装候補）のまま <strong>5 年</strong>。この間に何があったのか
+</div>
+
+</v-click>
+
+<!--
+出典:
+- Stage 3 到達 2021-03-10: https://spidermonkey.dev/blog/2025/04/11/shipping-temporal.html
+- 2024 仕様縮小: https://github.com/tc39/proposal-temporal/issues/2853 / 2854（2024-04 チャンピオン会議 → 2024-06 TC39 承認）
+- Stage 4 (2026-03, 第 113 回会合): https://www.igalia.com/2026/03/13/Temporal-Reaches-Stage-4.html
+- 掲載先は ES2027: tc39/proposals finished-proposals.md の Expected Publication Year が 2027。ES2026（2026-07-02 公開）には Temporal は入っていない（一部メディアの「ES2026 入り」は誤り）
+- TC39 プロセス: https://tc39.es/process-document/（Stage 4 要件: test262 + 2 実装 + 出荷経験）
+-->
+
+<style>
+.timeline { display: flex; flex-direction: column; gap: 0.6rem; }
+.tl-item { display: flex; gap: 1rem; align-items: baseline; }
+.tl-year { min-width: 5.5rem; font-weight: 700; color: #ffb86c; text-align: right; }
+.tl-body { font-size: 0.9rem; }
+</style>
+
+---
+layout: default
+---
+
 # なぜ時間がかかったのか①：仕様が巨大
 
 「ES2015 以来最大の言語追加」と呼ばれる規模
@@ -150,51 +204,65 @@ Temporal の仕様は、**国際化仕様 ECMA-402 全体よりも大きい**
 layout: default
 ---
 
-# なぜ時間がかかったのか②：Stage 3 で 5 年の紆余曲折
+# なぜ時間がかかったのか②：Stage 3 でも仕様が変わり続けた
 
-<div class="mt-4 timeline">
+<div class="mt-4">
 
-<div class="tl-item">
-<div class="tl-year">2017</div>
-<div class="tl-body">提案スタート（Stage 1）</div>
+- Stage 3 は本来、仕様を凍結して実装フィードバックを集める段階
+- Temporal では実装から問題が次々に見つかり、**仕様変更（normative change）が Stage 4 直前まで続いた**
+- 最大の変更が 2024-06 の**大幅縮小**：`Temporal.Calendar` / `Temporal.TimeZone` クラスとカスタム化プロトコルを削除
+- 縮小を求めたのは**エンジン実装者の側**（低スペック端末でのバイナリサイズへの懸念）
+
 </div>
 
-<div class="tl-item">
-<div class="tl-year">2021-03</div>
-<div class="tl-body"><strong>Stage 3 到達</strong>。仕様は完成、あとは実装するだけのはずだった</div>
+<v-click>
+
+<div class="mt-6 text-sm opacity-80">
+
+この経験は TC39 のプロセス自体も変えた。2023-11 に新設された **Stage 2.7**（仕様承認とテスト・実装の間の中間段階）の動機説明では、Temporal が名指しで例に挙げられている
+
 </div>
 
-<div class="tl-item">
-<div class="tl-year">2024</div>
-<div class="tl-body"><strong>仕様のダイエット</strong>。低スペック端末でのバイナリサイズを懸念した実装者の要請で、<code>Temporal.Calendar</code> / <code>Temporal.TimeZone</code> クラスとカスタム化プロトコルを丸ごと削除</div>
-</div>
+</v-click>
 
-<div class="tl-item">
-<div class="tl-year">2026-03</div>
-<div class="tl-body"><strong>Stage 4 到達 🎉</strong>。ECMA-262 にマージされ、ES2027 に掲載予定</div>
-</div>
+<!--
+出典:
+- 2024 縮小: https://github.com/tc39/proposal-temporal/issues/2853 / 2854（実装者の要請であることも issue に記載）
+- Stage 2.7 新設 (2023-11-30 TC39 総会): https://github.com/tc39/notes/blob/main/meetings/2023-11/november-30.md
+  提案者 Michael Ficarra の発言: "the main reason that Temporal wanted to be at Stage 3 was so tests could be written and people could implement it and try it out. And the main reason they didn't want to stay at stage 2 is that they didn't want to relitigate the design."
+- process-document への反映: https://github.com/tc39/process-document/pull/37（2023-12-01 マージ）
+-->
+
+---
+layout: default
+---
+
+# Safari はなぜ最後になったのか
+
+<div class="mt-4">
+
+- Temporal を**安定版で出荷したことは一度もない**（2026-08 時点）
+- JSC には Stage 3 直後の **2021 年からフラグ付き（`--useTemporal`）の部分実装**があった
+- 完成しないまま数年停滞。2024 年の仕様縮小では、**初期実装が作り込んでいた `Temporal.Calendar` / `Temporal.TimeZone` がまるごと削除対象**になり、手戻りが発生した
+- **2025 年に Igalia が実装を再開**し、1 年で約 40 の PR を投入して完成へ
+- **2026-07 の Technology Preview 249 で初めてデフォルト有効化**。安定版と Safari 27 beta にはまだ入っていない
 
 </div>
 
 <div class="mt-4 text-sm opacity-70">
-TC39 の Stage 4 には test262 テストの完備と出荷実装 2 つ以上が必要。実装と仕様修正の往復が続いた
+停滞の原因は仕様変更だけではなく、実装リソースの事情も重なっている
 </div>
 
 <!--
-出典:
-- Stage 3 到達 2021-03-10: https://spidermonkey.dev/blog/2025/04/11/shipping-temporal.html
-- 2024 仕様ダイエット: https://github.com/tc39/proposal-temporal/issues/2853 / 2854（2024-04 チャンピオン会議 → 2024-06 TC39 承認）
-- Stage 4 (2026-03, 第 113 回会合): https://www.igalia.com/2026/03/13/Temporal-Reaches-Stage-4.html
-- 掲載先は ES2027: tc39/proposals finished-proposals.md の Expected Publication Year が 2027。ES2026（2026-07-02 公開）には Temporal は入っていない（一部メディアの「ES2026 入り」は誤り）
-- TC39 プロセス: https://tc39.es/process-document/（Stage 4 要件: test262 + 2 実装 + 出荷経験）
+出典（2026-08-20 調査）:
+- メタバグ bug 223166「[JSC] Implement Temporal」(2021-03-14 起票、Apple の Yusuke Suzuki 氏): https://bugs.webkit.org/show_bug.cgi?id=223166
+- フラグ付き実装の傍証: STP 154 リリースノート「Behind the --useTemporal flag」(2022-09-21): https://webkit.org/blog/13207/release-notes-for-safari-technology-preview-154/
+- Igalia の再開と約 40 PR: Tim Chevalier のブログ (2026-02-02): https://blogs.igalia.com/compilers/2026/02/02/implementing-the-temporal-proposal-in-javascriptcore/
+- デフォルト有効化: bug 318885 (2026-07-08) / STP 249 (2026-07-29): https://webkit.org/blog/18182/release-notes-for-safari-technology-preview-249/
+- 安定版 26.0〜26.6・Safari 27 beta に Temporal の記載なし（2026-08-20 確認）
+- STP 249 の実装は JSC 自前の C++ 実装（temporal_rs は参照設計としてコメントで言及されるのみ）
+- 「一度 ship した」は安定版出荷を意味するなら誤りなので使わない — この言い方が正確
 -->
-
-<style>
-.timeline { display: flex; flex-direction: column; gap: 0.6rem; }
-.tl-item { display: flex; gap: 1rem; align-items: baseline; }
-.tl-year { min-width: 5.5rem; font-weight: 700; color: #ffb86c; text-align: right; }
-.tl-body { font-size: 0.9rem; }
-</style>
 
 ---
 layout: default
@@ -209,7 +277,7 @@ Chrome 144 の出荷の裏には、実装アプローチの転換があった
 - V8 は自前 C++ 実装をやめ、Rust 製ライブラリ **`temporal_rs`** を採用
 - `temporal_rs` は JS エンジン **Boa**（Rust 製）のプロジェクトから生まれ、2024-06 から Google の国際化チームと協業
 - **Chromium で主要な JS API が Rust で実装されたのは初**
-- Boa / V8 / Kiesel（Zig 製エンジン）が**同一実装を共有** — test262 を 100% パス
+- Boa / V8 / Kiesel（Zig 製エンジン）が**同一実装を共有**し、test262 を 100% パス
 
 </div>
 
@@ -258,16 +326,8 @@ layout: default
 
 </div>
 
-<v-click>
-
-<div class="mt-8 text-center text-lg">
-ゴールは見えている。<strong>学ぶなら今がちょうどいい</strong>
-</div>
-
-</v-click>
-
 <!--
-Safari の出荷時期の公式 ETA は存在しない（TP 249 搭載から「近い」と推測はできるが、スライドでは断定しない）
+Safari の出荷時期の公式 ETA は存在しない（TP 249 搭載から近いと推測はできるが、スライドでは断定しない）
 -->
 
 <style>
