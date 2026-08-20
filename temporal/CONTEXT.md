@@ -88,6 +88,21 @@
 - 既存ライブラリ: moment は 2020 年に「maintenance mode」宣言＋Temporal 推奨（2026-08-17 に 6 年ぶりの Status 更新あり。AI エージェント起因で DL 3 倍超、ただし Temporal への言及はこの更新にはない）。date-fns は作者が Temporal 対応を blog で公言（v4 の TZ 対応は布石）。Day.js / Luxon は公式言及なし
 - デモの import は説明の単純さを優先して ponyfill 形式（`import { Temporal } from 'temporal-polyfill'`）を使うが、実アプリの推奨は `/global`（スライドでもそう案内する）
 
+## ファクトチェック記録（2026-08-20 実施）
+
+コード例 20 件を実行検証（全件一致）、外部事実 50 項目を一次情報で再検証した。修正済みの誤り:
+
+- **Bun**: issue オープン → デフォルト有効化 PR #32978 が 2026-08-05 にマージ済み（安定版 1.3.14 には未搭載）
+- **ECMA-262**: 「マージされ」→ マージ PR #3759 はレビュー中（Stage 4 到達と ES2027 予定は正しい）
+- **Stage 2.7 の名指し発言**: 提案者 Ficarra ではなく Jordan Harband の発言
+- **2024-06**: 縮小の「決定」が 2024-06（仕様 PR マージは 2024-09）
+- **Safari の「手戻りが発生」**: 出典に因果の明言がないため事実ベースの表現に変更
+- **polyfill**: 準拠仕様は 2026-07-27 版、週間 DL は約 287 万 / 約 178 万（2026-08-12〜18 週）
+
+⚠️ デモの注意: temporal-polyfill のデフォルトエントリは `japanese` 等の非 ISO 暦を **RangeError で拒否**する。和暦を見せるなら `temporal-polyfill/full` を使うか、ネイティブ実装のあるブラウザで実行すること（現行デモ 2 本は ISO 暦のみなので影響なし）。
+
+発表直前の再確認: Safari/STP の新リリース、Bun の新安定版、Baseline 判定、DL 数。
+
 ## デモ（Monaco Runner）の技術ノート
 
 - スライド内実行は Slidev の `{monaco-run}` を使用。依存は headmatter の `monacoRunAdditionalDeps: [temporal-polyfill]` で登録（headmatter 変更は dev サーバー再起動が必要）
