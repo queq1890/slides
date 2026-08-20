@@ -18,10 +18,6 @@ const reminder = reminderOf(meeting)
 console.log(meeting) // 😱 meeting まで 8/17 になっている
 ```
 
-<div class="mt-4 text-sm opacity-70">
-関数に Date を渡すたびに、書き換えられていないかを疑う必要がある
-</div>
-
 ---
 layout: default
 ---
@@ -35,24 +31,12 @@ const meeting = new Date('2026-08-18T09:00:00+09:00')
 meeting.getTime() // 1787011200000 ← Date が実際に持っているのはこの数値だけ
 ```
 
-<div class="grid grid-cols-2 gap-6 mt-4">
-
-<div class="pain">
+<div class="pain mt-4">
 
 ### 表現できるのは 2 つだけ
 
 - 実行環境の**ローカル**タイムゾーン
 - **UTC**（`getUTC*` メソッド）
-
-</div>
-
-<div class="pain">
-
-### 表現できないもの
-
-- ローカルでも UTC でもない**任意のタイムゾーンの日時**（ニューヨークの 8/18 9:00 など）
-
-</div>
 
 </div>
 
