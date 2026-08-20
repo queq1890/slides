@@ -41,7 +41,9 @@ layout: default
 
 # Baseline とは何か
 
-[web.dev/baseline](https://web.dev/baseline)：「この機能、もう使っていい？」への業界共通の答え
+> ウェブ プラットフォームの機能に対するブラウザのサポートに関する情報を明確にします。
+
+<div class="text-sm opacity-70 mt-1">— <a href="https://web.dev/baseline" target="_blank">web.dev/baseline</a> より</div>
 
 <div class="mt-4">
 
@@ -80,7 +82,7 @@ Newly から **30 ヶ月**経過
 <v-click>
 
 <div class="mt-6 text-center">
-Temporal は現在 <strong class="text-red-400">Limited availability</strong>。Safari 安定版が空欄のままだからだ
+Temporal は現在 <strong class="text-red-400">Limited availability</strong>。Safari ではまだサポートしきれていない
 </div>
 
 </v-click>
@@ -130,7 +132,7 @@ Temporal の仕様は、**国際化仕様 ECMA-402 全体よりも大きい**
 </div>
 
 <div class="mt-6 text-sm opacity-70">
-タイムゾーン、カレンダー、夏時間、うるう年。「日時」は人類の合意の集積で、正しくやると本質的に重い
+タイムゾーン、カレンダー、夏時間、うるう年。日時は人類の合意の集積で、正しくやると本質的に重い
 </div>
 
 <!--
@@ -159,7 +161,7 @@ layout: default
 
 <div class="tl-item">
 <div class="tl-year">2021-03</div>
-<div class="tl-body"><strong>Stage 3 到達</strong>。「仕様完成、あとは実装」のはずだった</div>
+<div class="tl-body"><strong>Stage 3 到達</strong>。仕様は完成、あとは実装するだけのはずだった</div>
 </div>
 
 <div class="tl-item">
@@ -175,7 +177,7 @@ layout: default
 </div>
 
 <div class="mt-4 text-sm opacity-70">
-TC39 の Stage 4 には「test262 テスト完備＋出荷実装 2 つ以上」が必要。実装と仕様修正の往復が続いた
+TC39 の Stage 4 には test262 テストの完備と出荷実装 2 つ以上が必要。実装と仕様修正の往復が続いた
 </div>
 
 <!--
@@ -214,7 +216,7 @@ Chrome 144 の出荷の裏には、実装アプローチの転換があった
 <v-click>
 
 <div class="mt-6 text-center opacity-90">
-「巨大で正確さが命の仕様は、エンジン間でロジックを共有する」という新しい前例に
+巨大で正確さが命の仕様をエンジン間で共有実装する、という新しい前例に
 </div>
 
 </v-click>
@@ -231,7 +233,7 @@ Chrome 144 の出荷の裏には、実装アプローチの転換があった
 layout: default
 ---
 
-# で、いつ「使える」ようになるのか
+# で、いつ使えるようになるのか
 
 <div class="mt-6 flow">
 
@@ -244,14 +246,14 @@ layout: default
 
 <div class="step">
 <div class="step-title">Safari 出荷の瞬間</div>
-<div class="step-body">Baseline <strong>Newly available</strong><br>「最新ブラウザなら動く」</div>
+<div class="step-body">Baseline <strong>Newly available</strong><br>最新ブラウザなら動く</div>
 </div>
 
 <div class="arrow">→</div>
 
 <div class="step">
 <div class="step-title">その 30 ヶ月後</div>
-<div class="step-body">Baseline <strong>Widely available</strong><br>「polyfill なしで本番投入」</div>
+<div class="step-body">Baseline <strong>Widely available</strong><br>polyfill なしで本番投入できる</div>
 </div>
 
 </div>

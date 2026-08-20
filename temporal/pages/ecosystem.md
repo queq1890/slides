@@ -73,8 +73,8 @@ layout: default
 
 | ライブラリ | 週間 DL | Temporal へのスタンス |
 | --- | --- | --- |
-| **moment** | 30.8M | 2020 年に「メンテナンスモード」宣言、後継として Temporal を推奨 |
-| **date-fns** | 85.5M | 作者が「Temporal 時代への移行の準備」を公言。v4 の TZ 対応はその布石 |
+| **moment** | 30.8M | 2020 年にメンテナンスモードを宣言し、後継として Temporal を推奨 |
+| **date-fns** | 85.5M | 作者が Temporal 時代への移行の準備を公言。v4 の TZ 対応はその布石 |
 | **Day.js** | 56.4M | Temporal に関する公式表明なし。パッチリリースは継続 |
 | **Luxon** | 31.9M | ドキュメントに Temporal への言及なし |
 

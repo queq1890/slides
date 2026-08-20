@@ -53,7 +53,7 @@ console.log('年齢:', age.years)
 layout: default
 ---
 
-# デモ③：もう「本物」が動く
+# デモ③：ネイティブの Temporal を動かす
 
 <div class="mt-6 text-lg">
 
@@ -76,7 +76,7 @@ Temporal.Now.zonedDateTimeISO().toString()
 <div class="mt-8 text-sm opacity-70">
 
 Chrome 144+ / Edge 144+ / Firefox 139+ / Node.js 26+ / Deno 2.7+ なら import なしで動く。<br>
-手元の Safari では動かないはず。それが「Baseline Limited」の体感になる
+手元の Safari では動かないはず。それが Baseline Limited の体感になる
 
 </div>
 
