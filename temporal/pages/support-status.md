@@ -8,22 +8,14 @@ layout: default
 
 | 環境 | 状況 | 時期 |
 | --- | --- | --- |
-| Firefox | ✅ **139 で出荷済み** | 2025-05 |
-| Chrome / Edge | ✅ **144 で出荷済み**（フラグ不要） | 2026-01 |
-| Safari | ⏳ **安定版は未出荷**（Technology Preview 249 には搭載） | TP: 2026-07 |
+| Firefox | ✅ **139 で shipped** | 2025-05 |
+| Chrome / Edge | ✅ **144 で shipped**（フラグ不要） | 2026-01 |
+| Safari | ⏳ **安定版は未 ship**（Technology Preview 249 には搭載） | TP: 2026-07 |
 | Node.js | ✅ **26 でデフォルト有効** | 2026-05 |
 | Deno | ✅ **2.7 でフラグ不要に** | 2026-02 |
 | Bun | ❌ 未対応（issue はオープンのまま） | — |
 
 </div>
-
-<v-click>
-
-<div class="mt-4 text-center text-lg">
-主要環境はほぼ揃った。<strong>最後のピースは Safari 安定版だけ</strong>
-</div>
-
-</v-click>
 
 <!--
 出典（すべて 2026-08-18 確認）:
@@ -40,10 +32,6 @@ layout: default
 ---
 
 # Baseline とは何か
-
-> ウェブ プラットフォームの機能に対するブラウザのサポートに関する情報を明確にします。
-
-<div class="text-sm opacity-70 mt-1">— <a href="https://web.dev/baseline" target="_blank">web.dev/baseline</a> より</div>
 
 <div class="mt-4">
 
@@ -105,13 +93,13 @@ https://api.webstatus.dev/v1/features/temporal
 layout: default
 ---
 
-# 提案から Stage 4 まで 9 年
+# Proposal から Stage 4 まで 9 年
 
 <div class="mt-4 timeline">
 
 <div class="tl-item">
 <div class="tl-year">2017</div>
-<div class="tl-body">提案スタート（Stage 1）</div>
+<div class="tl-body">Proposal スタート（Stage 1）</div>
 </div>
 
 <div class="tl-item">
@@ -186,7 +174,7 @@ Temporal の仕様は、**国際化仕様 ECMA-402 全体よりも大きい**
 </div>
 
 <div class="mt-6 text-sm opacity-70">
-タイムゾーン、カレンダー、夏時間、うるう年。日時は人類の合意の集積で、正しくやると本質的に重い
+タイムゾーン、カレンダー、サマータイム、うるう年。日時は人類の合意の集積で、正しくやると本質的に重い
 </div>
 
 <!--
@@ -241,7 +229,7 @@ layout: default
 
 <div class="mt-4">
 
-- Temporal を**安定版で出荷したことは一度もない**（2026-08 時点）
+- Temporal を**安定版で ship したことは一度もない**（2026-08 時点）
 - JSC には Stage 3 直後の **2021 年からフラグ付き（`--useTemporal`）の部分実装**があった
 - 完成しないまま数年停滞。2024 年の仕様縮小では、**初期実装が作り込んでいた `Temporal.Calendar` / `Temporal.TimeZone` がまるごと削除対象**になり、手戻りが発生した
 - **2025 年に Igalia が実装を再開**し、1 年で約 40 の PR を投入して完成へ
@@ -268,52 +256,19 @@ layout: default
 layout: default
 ---
 
-# V8 の Temporal は Rust 製
-
-Chrome 144 の出荷の裏には、実装アプローチの転換があった
-
-<div class="mt-4">
-
-- V8 は自前 C++ 実装をやめ、Rust 製ライブラリ **`temporal_rs`** を採用
-- `temporal_rs` は JS エンジン **Boa**（Rust 製）のプロジェクトから生まれ、2024-06 から Google の国際化チームと協業
-- **Chromium で主要な JS API が Rust で実装されたのは初**
-- Boa / V8 / Kiesel（Zig 製エンジン）が**同一実装を共有**し、test262 を 100% パス
-
-</div>
-
-<v-click>
-
-<div class="mt-6 text-center opacity-90">
-巨大で正確さが命の仕様をエンジン間で共有実装する、という新しい前例に
-</div>
-
-</v-click>
-
-<!--
-出典:
-- Boa 公式ブログ (2025-09-24): https://boajs.dev/blog/2025/09/24/temporal-release
-- https://github.com/boa-dev/temporal
-- Bloomberg JS Blog: 2024-06 協業開始、test262 100% パス（V8 統合時点の conformance 約 99%）
-- socket.dev: https://socket.dev/blog/temporal-api-ships-in-chrome-144-major-shift-for-javascript-date-handling
--->
-
----
-layout: default
----
-
-# で、いつ使えるようになるのか
+# いつ使えるようになるのか
 
 <div class="mt-6 flow">
 
 <div class="step step-now">
 <div class="step-title">今（2026-08）</div>
-<div class="step-body">Limited availability<br>Safari 安定版のみ未出荷<br>（TP 249 には搭載済み）</div>
+<div class="step-body">Limited availability<br>Safari 安定版のみ未 ship<br>（TP 249 には搭載済み）</div>
 </div>
 
 <div class="arrow">→</div>
 
 <div class="step">
-<div class="step-title">Safari 出荷の瞬間</div>
+<div class="step-title">Safari が ship した瞬間</div>
 <div class="step-body">Baseline <strong>Newly available</strong><br>最新ブラウザなら動く</div>
 </div>
 
@@ -327,7 +282,7 @@ layout: default
 </div>
 
 <!--
-Safari の出荷時期の公式 ETA は存在しない（TP 249 搭載から近いと推測はできるが、スライドでは断定しない）
+Safari が ship する時期の公式 ETA は存在しない（TP 249 搭載から近いと推測はできるが、スライドでは断定しない）
 -->
 
 <style>

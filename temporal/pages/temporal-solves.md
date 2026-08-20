@@ -110,7 +110,7 @@ const nyMeeting = Temporal.ZonedDateTime.from(
 nyMeeting.withTimeZone('Asia/Tokyo').toString()
 // => '2026-08-18T22:00:00+09:00[Asia/Tokyo]'
 
-nyMeeting.add({ days: 1 }) // 夏時間の境界も正しく処理
+nyMeeting.add({ days: 1 }) // サマータイムの境界も正しく処理
 ```
 
 <div class="mt-4 text-sm opacity-70">
@@ -192,6 +192,3 @@ const age = birthday.until(Temporal.Now.plainDateISO(), {
 })
 ```
 
-<div class="mt-4 text-sm opacity-70">
-Date のつらみ④だった off-by-one もダミー日付ハックも、型の選択だけで消える
-</div>
