@@ -119,14 +119,6 @@ layout: default
 
 </div>
 
-<v-click>
-
-<div class="mt-6 text-center text-lg">
-Stage 3（実装候補）のまま <strong>5 年</strong>。この間に何があったのか
-</div>
-
-</v-click>
-
 <!--
 出典:
 - Stage 3 到達 2021-03-10: https://spidermonkey.dev/blog/2025/04/11/shipping-temporal.html
@@ -201,7 +193,6 @@ layout: default
 - Stage 3 は本来、仕様を凍結して実装フィードバックを集める段階
 - Temporal では実装から問題が次々に見つかり、**仕様変更（normative change）が Stage 4 直前まで続いた**
 - 最大の変更が 2024-06 に決定された**大幅縮小**：`Temporal.Calendar` / `Temporal.TimeZone` クラスとカスタム化プロトコルを削除
-- 縮小を求めたのは**エンジン実装者の側**（低スペック端末でのバイナリサイズへの懸念）
 
 </div>
 
@@ -237,10 +228,6 @@ layout: default
 - **2025 年に Igalia が実装を再開**し、1 年で約 40 の PR を投入して完成へ
 - **2026-07 の Technology Preview 249 で初めてデフォルト有効化**。安定版と Safari 27 beta にはまだ入っていない
 
-</div>
-
-<div class="mt-4 text-sm opacity-70">
-停滞の原因は仕様変更だけではなく、実装リソースの事情も重なっている
 </div>
 
 <!--

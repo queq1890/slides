@@ -30,8 +30,6 @@ import の書き換えに失敗する。ライブ編集時もこの位置にコ�
 layout: default
 ---
 
-# デモ②：型を選ぶと、バグが消える
-
 ```ts {monaco-run} {autorun:false}
 import { Temporal } from 'temporal-polyfill'
 
