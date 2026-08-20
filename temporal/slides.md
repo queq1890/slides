@@ -34,11 +34,8 @@ layout: section
 
 # JavaScript の Date の振る舞い
 
-<div class="section-sub">30 年前の設計を、今も引きずっている</div>
-
 <style>
 .section-num { font-size: 1rem; font-weight: 700; color: #ff5555; letter-spacing: 0.2em; opacity: 0.8; }
-.section-sub { font-size: 1rem; color: #6272a4; margin-top: 0.5rem; }
 </style>
 
 ---
@@ -53,11 +50,8 @@ layout: section
 
 # Temporal は何を解決するのか
 
-<div class="section-sub">つらみの一つひとつに、設計で答える</div>
-
 <style>
 .section-num { font-size: 1rem; font-weight: 700; color: #50fa7b; letter-spacing: 0.2em; opacity: 0.8; }
-.section-sub { font-size: 1rem; color: #6272a4; margin-top: 0.5rem; }
 </style>
 
 ---
@@ -72,11 +66,8 @@ layout: section
 
 # サポート状況と Baseline
 
-<div class="section-sub">実装は複数あるのに、なぜまだ「使える」と言えないのか</div>
-
 <style>
 .section-num { font-size: 1rem; font-weight: 700; color: #bd93f9; letter-spacing: 0.2em; opacity: 0.8; }
-.section-sub { font-size: 1rem; color: #6272a4; margin-top: 0.5rem; }
 </style>
 
 ---
@@ -91,11 +82,8 @@ layout: section
 
 # npm パッケージでの対応方針
 
-<div class="section-sub">Baseline 前の今、どう Temporal に触るか</div>
-
 <style>
 .section-num { font-size: 1rem; font-weight: 700; color: #ffb86c; letter-spacing: 0.2em; opacity: 0.8; }
-.section-sub { font-size: 1rem; color: #6272a4; margin-top: 0.5rem; }
 </style>
 
 ---
@@ -110,11 +98,8 @@ layout: section
 
 # 実装デモ
 
-<div class="section-sub">スライドの中で、そのまま動かす</div>
-
 <style>
 .section-num { font-size: 1rem; font-weight: 700; color: #8be9fd; letter-spacing: 0.2em; opacity: 0.8; }
-.section-sub { font-size: 1rem; color: #6272a4; margin-top: 0.5rem; }
 </style>
 
 ---
