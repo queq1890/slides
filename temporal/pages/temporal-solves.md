@@ -4,7 +4,7 @@ layout: default
 
 # Temporal の全体像：型は 2 系統
 
-「いつ」の意味ごとに、**専用の型**を使い分ける設計
+表したい時間の意味ごとに、**専用の型**を使い分ける設計
 
 <div class="grid grid-cols-2 gap-6 mt-4">
 
@@ -12,7 +12,7 @@ layout: default
 
 ### 🕰️ Wall-clock 系（Plain*）
 
-カレンダーや時計に書いてある「見た目の日時」。タイムゾーンを持たない
+カレンダーや時計に書いてある見た目の日時。タイムゾーンを持たない
 
 - `Temporal.PlainDate`：日付だけ（誕生日）
 - `Temporal.PlainTime`：時刻だけ（営業時間）
@@ -96,9 +96,9 @@ const reminder = meeting.subtract({ days: 1 })
 layout: default
 ---
 
-# 解決②：タイムゾーンが第一級
+# 解決②：タイムゾーンのサポート
 
-`ZonedDateTime` が「瞬間＋タイムゾーン」を丸ごと持ち運ぶ
+`ZonedDateTime` が瞬間とタイムゾーンを丸ごと持ち運ぶ
 
 ```js
 // ニューヨークの 8/18 朝 9 時の会議は…
@@ -110,11 +110,11 @@ const nyMeeting = Temporal.ZonedDateTime.from(
 nyMeeting.withTimeZone('Asia/Tokyo').toString()
 // => '2026-08-18T22:00:00+09:00[Asia/Tokyo]'
 
-nyMeeting.add({ days: 1 }) // 夏時間の境界も正しく処理
+nyMeeting.add({ days: 1 }) // サマータイムの境界も正しく処理
 ```
 
 <div class="mt-4 text-sm opacity-70">
-タイムゾーン名（IANA）が文字列表現に含まれる記法は RFC 9557 として標準化された
+タイムゾーン名（IANA）が文字列表現に含まれる記法は [RFC 9557](https://www.rfc-editor.org/rfc/rfc9557) として標準化された
 </div>
 
 <!--
@@ -142,7 +142,7 @@ new Date('2026/08/18') // ローカル解釈
 new Date('not a date') // Invalid Date
 ```
 
-黙って「それっぽく」解釈する
+黙ってそれらしく解釈する
 
 </div>
 
@@ -176,7 +176,7 @@ layout: default
 
 # 解決④：用途に合った型を選べる
 
-「持ちたい情報だけ」を持つ型があるから、**表現のズレが起きない**
+持ちたい情報だけを持つ型があるから、**表現のズレが起きない**
 
 ```js
 // 誕生日 — タイムゾーンも時刻も無関係
@@ -192,6 +192,3 @@ const age = birthday.until(Temporal.Now.plainDateISO(), {
 })
 ```
 
-<div class="mt-4 text-sm opacity-70">
-Date の「つらみ④」だった off-by-one もダミー日付ハックも、型の選択だけで消える
-</div>

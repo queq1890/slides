@@ -46,40 +46,5 @@ const age = birthday.until(today, { largestUnit: 'years' })
 console.log('年齢:', age.years)
 
 // 曖昧な文字列は受け付けない（コメントを外して実行）
-// Temporal.PlainDate.from('1990/08/18')
+// console.log(Temporal.PlainDate.from('1990/08/18'))
 ```
-
----
-layout: default
----
-
-# デモ③：もう「本物」が動く
-
-<div class="mt-6 text-lg">
-
-ここまでのデモは polyfill で動かした。
-
-**この画面を映している Chrome では、ネイティブの `Temporal` がもう動く**
-
-</div>
-
-<div class="mt-6 code-hint">
-
-DevTools のコンソールを開いて：
-
-```js
-Temporal.Now.zonedDateTimeISO().toString()
-```
-
-</div>
-
-<div class="mt-8 text-sm opacity-70">
-
-Chrome 144+ / Edge 144+ / Firefox 139+ / Node.js 26+ / Deno 2.7+ なら import なしで動く。<br>
-手元の Safari では動かないはず。それが「Baseline Limited」の体感になる
-
-</div>
-
-<style>
-.code-hint { background: #282a36; border: 1px solid #44475a; border-radius: 0.6rem; padding: 1rem 1.4rem; }
-</style>
