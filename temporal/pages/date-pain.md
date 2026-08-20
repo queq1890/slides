@@ -57,10 +57,6 @@ meeting.getTime() // 1787011200000 ← Date が実際に持っているのはこ
 
 </div>
 
-<div class="mt-4 text-sm opacity-70">
-海外拠点との会議調整やグローバル向けアプリでは、この時点で詰む
-</div>
-
 <style>
 .pain { background: #331e1e; border-radius: 0.6rem; padding: 0.8rem 1.2rem; }
 .pain h3 { color: #ff5555; font-size: 1rem; }
