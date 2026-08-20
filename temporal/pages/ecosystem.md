@@ -9,10 +9,10 @@ layout: default
 | | **temporal-polyfill**<br>(FullCalendar 製) | **@js-temporal/polyfill**<br>(元 champions 発) |
 | --- | --- | --- |
 | 最新リリース | **1.0.4（2026-08）** | 0.5.1（2025-03 で停滞） |
-| 準拠する仕様 | **Stage 4 後の 2026-08 版** | 2025-03 版（その後の変更が未反映） |
+| 準拠する仕様 | **Stage 4 後の 2026-07 版** | 2025-03 版（その後の変更が未反映） |
 | サイズ（gzip） | **19.8 kB** | 45.3 kB |
 | ネイティブ優先 | ✅ `/global` で自動フォールバック | ❌ グローバルを張らない設計 |
-| 週間 DL | 284 万 | 182 万 |
+| 週間 DL | 約 287 万 | 約 178 万 |
 
 </div>
 
@@ -26,10 +26,11 @@ layout: default
 
 <!--
 出典（2026-08-18 確認）:
-- https://github.com/fullcalendar/temporal-polyfill（README 比較表「Spec date: August 2026」、意図的逸脱 2 件のみと主張）
+- 準拠仕様は 2026-07-27 版（CHANGELOG: 1.0.2 が "Updated to latest spec (2026-07-27)"、1.0.4〈2026-08-13〉はバグ修正のみ）: https://github.com/fullcalendar/temporal-polyfill/releases
+- 意図的逸脱 2 件のみと README が主張
 - https://github.com/js-temporal/temporal-polyfill（0.5.1 は 2025-03-31。npm の description は今も「Stage 3 proposal」のまま）
 - サイズ: bundlephobia API（min+gzip、同一手法）
-- DL 数: api.npmjs.org 2026-08-09〜15
+- DL 数: api.npmjs.org 2026-08-12〜18 週の実測（287 万 / 178 万）。週次で変動するため発表前に再取得推奨
 - 注意: temporal-polyfill のデフォルト entrypoint は iso8601/gregory カレンダーのみ。和暦などは /full/（23.4 kB gzip）
 - test262 の「通過率 %」はどちらも公表数値なし
 -->

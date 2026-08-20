@@ -13,7 +13,7 @@ layout: default
 | Safari | ⏳ **安定版は未 ship**（Technology Preview 249 には搭載） | TP: 2026-07 |
 | Node.js | ✅ **26 でデフォルト有効** | 2026-05 |
 | Deno | ✅ **2.7 でフラグ不要に** | 2026-02 |
-| Bun | ❌ 未対応（issue はオープンのまま） | — |
+| Bun | ⏳ **安定版では未搭載**（デフォルト有効化 PR はマージ済み） | PR: 2026-08 |
 
 </div>
 
@@ -24,7 +24,7 @@ layout: default
 - Safari TP 249 (2026-07-29): https://webkit.org/blog/18182/release-notes-for-safari-technology-preview-249/
 - Node 26.0.0 (2026-05-05, V8 14.6): https://github.com/nodejs/node/releases/tag/v26.0.0 （LTS 昇格は 2026-10 予定）
 - Deno 2.7 (2026-02-25): https://deno.com/blog/v2.7
-- Bun: https://github.com/oven-sh/bun/issues/15853 （open。未対応の根拠はこの issue のみ）
+- Bun: デフォルト有効化 PR #32978 が 2026-08-05 にマージ済み（issue #15853 はクローズ）。最新安定版 1.3.14（2026-05-13）には未搭載。発表当日までに新リリースが出ていないか要再確認: https://github.com/oven-sh/bun/pull/32978
 -->
 
 ---
@@ -109,12 +109,12 @@ layout: default
 
 <div class="tl-item">
 <div class="tl-year">2024-06</div>
-<div class="tl-body">仕様を大幅縮小（<code>Temporal.Calendar</code> / <code>Temporal.TimeZone</code> クラスを削除）</div>
+<div class="tl-body">仕様の大幅縮小を決定（<code>Temporal.Calendar</code> / <code>Temporal.TimeZone</code> クラスを削除）</div>
 </div>
 
 <div class="tl-item">
 <div class="tl-year">2026-03</div>
-<div class="tl-body"><strong>Stage 4 到達 🎉</strong>。ECMA-262 にマージされ、ES2027 に掲載予定</div>
+<div class="tl-body"><strong>Stage 4 到達 🎉</strong>。ECMA-262 へのマージ PR がレビュー中で、ES2027 に掲載予定</div>
 </div>
 
 </div>
@@ -132,7 +132,8 @@ Stage 3（実装候補）のまま <strong>5 年</strong>。この間に何が�
 - Stage 3 到達 2021-03-10: https://spidermonkey.dev/blog/2025/04/11/shipping-temporal.html
 - 2024 仕様縮小: https://github.com/tc39/proposal-temporal/issues/2853 / 2854（2024-04 チャンピオン会議 → 2024-06 TC39 承認）
 - Stage 4 (2026-03, 第 113 回会合): https://www.igalia.com/2026/03/13/Temporal-Reaches-Stage-4.html
-- 掲載先は ES2027: tc39/proposals finished-proposals.md の Expected Publication Year が 2027。ES2026（2026-07-02 公開）には Temporal は入っていない（一部メディアの「ES2026 入り」は誤り）
+- 掲載先は ES2027: tc39/proposals finished-proposals.md の Expected Publication Year が 2027。ES2026（2026-07-02 公開）には Temporal は入っていない（Bloomberg / socket.dev の「ES2026 入り」は誤り）
+- ECMA-262 へのマージ PR #3759 は 2026-08-20 時点でオープン（エディターレビュー中）: https://github.com/tc39/ecma262/pull/3759
 - TC39 プロセス: https://tc39.es/process-document/（Stage 4 要件: test262 + 2 実装 + 出荷経験）
 -->
 
@@ -179,7 +180,8 @@ Temporal の仕様は、**国際化仕様 ECMA-402 全体よりも大きい**
 
 <!--
 出典: Bloomberg JS Blog (2026-03): https://bloomberg.github.io/js-blog/post/temporal/
-- "largest addition to the language since ES2015"、ECMA-402 比較、test262 4,500 vs Date 594
+- "Temporal is the biggest addition to ECMAScript since ES2015"、ECMA-402 比較（"This GIANT spec is bigger than all of ECMA-402"）
+- test262 4,500 vs 594 の出典は Igalia Stage 4 記事。集計方法によっては 6,764 という数字もある（Igalia JSC 記事）ので、聞かれたら「約 4,500（集計方法で変動）」と答える
 注意: 「仕様◯◯ページ」という具体的なページ数は一次情報で確認できなかったため使わない
 -->
 
@@ -198,7 +200,7 @@ layout: default
 
 - Stage 3 は本来、仕様を凍結して実装フィードバックを集める段階
 - Temporal では実装から問題が次々に見つかり、**仕様変更（normative change）が Stage 4 直前まで続いた**
-- 最大の変更が 2024-06 の**大幅縮小**：`Temporal.Calendar` / `Temporal.TimeZone` クラスとカスタム化プロトコルを削除
+- 最大の変更が 2024-06 に決定された**大幅縮小**：`Temporal.Calendar` / `Temporal.TimeZone` クラスとカスタム化プロトコルを削除
 - 縮小を求めたのは**エンジン実装者の側**（低スペック端末でのバイナリサイズへの懸念）
 
 </div>
@@ -207,7 +209,7 @@ layout: default
 
 <div class="mt-6 text-sm opacity-80">
 
-この経験は TC39 のプロセス自体も変えた。2023-11 に新設された **Stage 2.7**（仕様承認とテスト・実装の間の中間段階）の動機説明では、Temporal が名指しで例に挙げられている
+この経験は TC39 のプロセス自体も変えた。2023-11 に新設された **Stage 2.7**（仕様承認とテスト・実装の間の中間段階）をめぐる議論の中で、Temporal が名指しで例に挙げられた
 
 </div>
 
@@ -216,8 +218,8 @@ layout: default
 <!--
 出典:
 - 2024 縮小: https://github.com/tc39/proposal-temporal/issues/2853 / 2854（実装者の要請であることも issue に記載）
-- Stage 2.7 新設 (2023-11-30 TC39 総会): https://github.com/tc39/notes/blob/main/meetings/2023-11/november-30.md
-  提案者 Michael Ficarra の発言: "the main reason that Temporal wanted to be at Stage 3 was so tests could be written and people could implement it and try it out. And the main reason they didn't want to stay at stage 2 is that they didn't want to relitigate the design."
+- Stage 2.7 新設 (2023-11-30 TC39 総会、提案者は Michael Ficarra): https://github.com/tc39/notes/blob/main/meetings/2023-11/november-30.md
+  Temporal を名指しした発言は Jordan Harband (JHD): "If we had this new stage 5 years ago, Temporal would have been sitting in it for many years, appropriately. Because the main reason that Temporal wanted to be at Stage 3 was so tests could be written and people could implement it and try it out."（発言者を Ficarra と言わないこと）
 - process-document への反映: https://github.com/tc39/process-document/pull/37（2023-12-01 マージ）
 -->
 
@@ -231,7 +233,7 @@ layout: default
 
 - Temporal を**安定版で ship したことは一度もない**（2026-08 時点）
 - JSC には Stage 3 直後の **2021 年からフラグ付き（`--useTemporal`）の部分実装**があった
-- 完成しないまま数年停滞。2024 年の仕様縮小では、**初期実装が作り込んでいた `Temporal.Calendar` / `Temporal.TimeZone` がまるごと削除対象**になり、手戻りが発生した
+- 完成しないまま数年停滞。2024 年の仕様縮小では、**初期実装が作り込んでいた `Temporal.Calendar` / `Temporal.TimeZone` がまるごと仕様から削除された**
 - **2025 年に Igalia が実装を再開**し、1 年で約 40 の PR を投入して完成へ
 - **2026-07 の Technology Preview 249 で初めてデフォルト有効化**。安定版と Safari 27 beta にはまだ入っていない
 
