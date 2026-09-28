@@ -1,0 +1,67 @@
+/* style.css — デッキ全体で共有するクラス。スライド固有のものは各スライドの <style> に置く */
+
+/* セクション扉の番号。色は扉ごとに --accent で差し替える */
+.section-num {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  opacity: 0.8;
+  color: var(--accent, #bd93f9);
+}
+.section-sub {
+  font-size: 1rem;
+  color: #6272a4;
+  margin-top: 0.5rem;
+}
+
+/* 見出し直下の補足 1 行 */
+.sub {
+  font-size: 1rem;
+  color: #6272a4;
+  margin: -0.5rem 0 1.25rem;
+}
+
+/* コードブロックの上に置く「どこで動くか」ラベル */
+.where {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-bottom: 0.45rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #6272a4;
+}
+
+/* 聞き手への問いかけ・次への引き */
+.ask {
+  margin-top: 1.5rem;
+  font-size: 1.15rem;
+  color: #f1b529;
+}
+
+/* 左にコード、右に解説の 2 カラム */
+.cols {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+.cols > * {
+  flex: 1 1 0;
+  min-width: 0;
+}
+.cols ul,
+.cols ol {
+  margin-top: 0;
+  font-size: 0.9rem;
+}
+
+/* 時点・未確定であることの注記 */
+.asof {
+  display: inline-block;
+  font-size: 0.7rem;
+  color: #6272a4;
+  border: 1px solid #44475a;
+  border-radius: 999px;
+  padding: 0.1rem 0.6rem;
+}
