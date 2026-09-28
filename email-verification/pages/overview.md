@@ -23,7 +23,7 @@ layout: default
   </div>
   <div v-click class="actor" style="--c: #50fa7b">
     <div class="name">Browser</div>
-    <div class="desc">Issuer からトークンをもらい、RP 向けに<b>自分で署名し直して</b>渡す</div>
+    <div class="desc">Issuer からトークンをもらい、<b>自分の鍵で署名した KB-JWT</b> を添えて RP に渡す</div>
   </div>
   <div v-click class="actor" style="--c: #8be9fd">
     <div class="name">Issuer</div>

@@ -121,9 +121,9 @@ _email-verification.gmail.com TXT "iss=accounts.google.com"
 
 <v-clicks>
 
-- `@` の右側のドメインで TXT を引きます。**レコードはちょうど 1 つ**でなければなりません。
+- `@` の右側のドメインで TXT を引きます。レコードはちょうど 1 つでなければなりません。
 - `iss=` の先が Issuer です。gmail.com → accounts.google.com のように、**別ドメインに委任**できます。
-- DNS をいじれるのはドメインの持ち主だけなので、**勝手に Issuer を名乗れません**
+- DNS が偽装されない限り、ドメインの持ち主以外は Issuer を名乗れません
 - 次にメタデータから、発行先と公開鍵の場所を取得します
 
 </v-clicks>
@@ -195,7 +195,7 @@ https://developer.chrome.com/blog/email-verification-august-2026
 layout: default
 ---
 
-# Issuer が返すのは「鍵に紐づいた証明書」
+# Issuer が返すのは「鍵に紐づいた確認トークン」
 
 <FlowStrip :current="5" />
 
@@ -226,7 +226,7 @@ layout: default
 
 <v-clicks>
 
-- EVT = Email Verification Token。SD-JWT の形式で、末尾に `~` が付きます。
+- EVT = Email Verification Token。形式は SD-JWT（鍵との紐づけ方まで決まった JWT の規格）を借りていて、末尾に `~` が付きます。
 - `cnf.jwk` は、さっきブラウザが送った公開鍵です
 - 「この鍵を持っている人が、このアドレスの持ち主」という意味になります
 - **`aud` がありません**。どの RP に出すかを Issuer は知らないからです。
@@ -272,8 +272,8 @@ layout: default
 <v-clicks>
 
 - KB = Key Binding。EVT の `cnf.jwk` に対応する秘密鍵で署名します。
-- `aud`：今いるページのオリジン。**ブラウザが入れる**ので、ページ側は嘘をつけません。
-- `nonce`：①で RP が埋めた値。使い回しを防ぎます。
+- `aud`：今いるページのオリジン。ページではなく、ブラウザが入れます。
+- `nonce`：RP がフォームに埋めた値。使い回しを防ぎます。
 - `sd_hash`：どの EVT とペアなのかを示すハッシュです
 
 </v-clicks>
@@ -312,10 +312,8 @@ layout: default
 
 <div>
 
-<div v-click class="ask">ブラウザが検証済みのトークンでも、RP は自分で確かめ直します。</div>
-
 <div v-click class="note">
-Issuer にアクセスするのは<b>公開鍵を取りに行くときだけ</b>です。キャッシュできるので、ユーザーごとの通信は発生しません。
+Issuer にアクセスするのは<b>公開鍵を取りに行くときだけ</b>です。キャッシュすれば、ユーザーごとの通信は発生しません。
 </div>
 
 </div>

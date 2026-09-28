@@ -61,10 +61,12 @@ layout: default
 
 <div>
 
-<div v-click class="ask">置き換えではなく、先に試す近道として。</div>
+<div v-click class="note">
+置き換えられないのは、受信できることまでは保証されず、未対応のブラウザもあるからです。
+</div>
 
 <div v-click class="note">
-Origin Trial のトークン登録が必要です。仕様はまだ破壊的に変わるので、本番では小さく試すのがおすすめです。
+Origin Trial のトークン登録が必要です。Chrome 153 でも破壊的変更があったように、仕様はまだ変わる可能性があります。本番では小さく試すのがおすすめです。
 </div>
 
 </div>
@@ -82,7 +84,7 @@ class: text-center
 
 # メール確認に、もう 1 つの選択肢
 
-<div class="cta">ブラウザが Issuer とサイトのあいだに立つことで、手間もフィッシングも名寄せも減らせます。</div>
+<div class="cta">ブラウザが Issuer とサイトのあいだに立つことで、手間とフィッシングを減らせます。対応する Issuer なら、名寄せも防げます。</div>
 
 <div class="pills">
 

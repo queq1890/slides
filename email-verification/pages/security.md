@@ -35,7 +35,6 @@ layout: default
 
 <v-clicks>
 
-- 発行リクエストの body はメールアドレスだけ。EVT にも `aud` はありません。
 - RP 宛ての一筆（KB-JWT）は、ブラウザが**Issuer に見えないところで**付けます
 - ソーシャルログインでは、IdP は `client_id` でどのサイトかを必ず知ります
 - ただし「いつ検証されたか」は Issuer に見えるので、時刻から推測される余地は残ります
@@ -87,7 +86,7 @@ layout: default
 <v-clicks>
 
 - `aud` はブラウザがアドレスバーのオリジンから入れるので、偽サイトは本物を名乗れません
-- ページの JS から Issuer に直接頼むこともできません。`Sec-Fetch-Dest: email-verification` はブラウザしか付けられないからです。
+- ページの JS から Issuer に頼んでも拒否されます。`Sec-Fetch-Dest: email-verification` はブラウザしか付けられないからです。
 
 </v-clicks>
 
@@ -150,13 +149,11 @@ draft-02 §7 Private Email Addresses / §9.4（転送するメールは Issuer �
 layout: default
 ---
 
-# 守らないと決めていること
-
-<div class="sub">仕様自身が書いている弱点です</div>
+# 仕様が認めている弱点
 
 <v-clicks>
 
-- **受信できることは保証しない**：証明できるのは「Issuer にログインしている」ことまで。メールが届くかはわかりません。README は「この点では OTP より弱い」と明記しています。
+- **受信できることは保証しない**：証明できるのは「Issuer にログインしている」ことまで。メールが届くかはわかりません。explainer（README）は「この点では OTP より弱い」と明記しています。
 - **RP 側の DNS を偽装されると破られる**：ブラウザ側だけの偽装は、RP が自分で DNS を引き直すので防げます。RP 側は「設計上の残存リスク」とされていて、RP は DNSSEC を検証すべき（SHOULD）です。
 - **ログイン状態は RP に漏れる**：トークンが返ってきたか、エラーになったかで、Issuer にログインしているかどうかが RP にわかります
 

@@ -21,8 +21,8 @@ layout: default
 <tbody>
 <tr v-click><td>ユーザーの操作</td><td>メールを開いてコピー</td><td>ボタン → 同意画面</td><td class="evp">アドレスを選ぶだけ</td></tr>
 <tr v-click><td>RP の準備</td><td>メール送信の仕組み</td><td>IdP ごとに登録と統合</td><td class="evp">input 1 つ + 検証</td></tr>
-<tr v-click><td>提供側が RP を知るか</td><td>メール本文から知りうる</td><td>知る（<code>client_id</code>）</td><td class="evp">知らない</td></tr>
-<tr v-click><td>フィッシング中継</td><td>通ってしまう</td><td>防げる</td><td class="evp">防げる（<code>aud</code>）</td></tr>
+<tr v-click><td>どのサイトかが漏れるか</td><td>メールプロバイダに見える</td><td>IdP に見える（<code>client_id</code>）</td><td class="evp">Issuer にも見えない</td></tr>
+<tr v-click><td>フィッシング中継</td><td>通ってしまう</td><td>防げる（リダイレクト先の検証）</td><td class="evp">防げる（<code>aud</code>）</td></tr>
 <tr v-click><td>証明できること</td><td>受信できること</td><td>IdP のアカウント（ログインも兼ねる）</td><td class="evp">アドレスを管理していること</td></tr>
 </tbody>
 </table>
@@ -40,7 +40,7 @@ layout: default
 layout: default
 ---
 
-# 競合ではなく、部品を借りている
+# FedCM、OIDC、passkeys との関係
 
 <div class="rels">
 
